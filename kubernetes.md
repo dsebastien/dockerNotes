@@ -122,7 +122,17 @@ We can't rely on pod IPs. When pods die, they're replaced by other pods on \(pot
 
 ### Deployment
 
-...
+Declarative approach: describe how the cluster should look like.
+
+* described by a YAML/JSON manifest
+  * spec-once deploy-many
+  * self-documenting
+  * versioned
+* extend the feature set of replication controller
+* simple rolling updates/rollbacks
+  * multiple concurrent versions
+    * blue-green deployments
+    * canary releases
 
 ## Windows test cluster setup
 
