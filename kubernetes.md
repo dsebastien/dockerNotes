@@ -78,11 +78,51 @@ Declarative model
 
 ### Pods
 
-Atomic unit of scheduling.
+Atomic unit of scheduling/scaling. Containers are ALWAYS inside a Pod.
 
-Containers are ALWAYS inside a Pod.
+* can contain 1-n containers
+* sandbox for containers \(environment\)
+  * contains a network stack \(transport, net, link\)
+  * kernel namespaces
+  * ...
+* all containers in a pod share the pod environment
+  * same IP, same network stack, same IPCs, same access to volumes, ...
+* atomic: pods are deployed atomically \(all or nothing\)
 
+Lifecycle
 
+* pending
+* running
+* succeeded / failed
+
+Example:
+
+* Web server
+* Log scraper \(sidecar container\)
+
+### Services
+
+Services provide a stable IP & DNS name for a set of pods.
+
+We can't rely on pod IPs. When pods die, they're replaced by other pods on \(potentially\) different nodes, with different IPs. Same when scaling up/down.
+
+* kubernetes object described by a YAML/JSON manifest like all other Kubernetes objects
+* load balances requests made to the pods
+  * by default: random
+  * DNS round robin possible, but be wary -- cache TTLs, ...\)
+* pods are associated with a service based on labels
+* can configure session affinity
+* only send requests to healthy pods
+* can point to things outside the cluster
+* uses TCP by default
+
+### Labels rock
+
+...
+
+### Deployment
+
+...
 
 ## Windows test cluster setup
 
