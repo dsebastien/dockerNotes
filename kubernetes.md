@@ -134,16 +134,46 @@ Declarative approach: describe how the cluster should look like.
     * blue-green deployments
     * canary releases
 
+# Tools
+
+## kubectl
+
+To control the cluster we can use kubectl: [https://kubernetes.io/docs/tasks/tools/install-kubectl/](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
+
+## Helm
+
+Helm \([https://github.com/kubernetes/helm/releases](https://github.com/kubernetes/helm/releases)\) is a "package manager" for Kubernetes, allowing to easily deploy "Charts" \(pre-made Deployments\)
+
+Installation:
+
+* download the release and add to the path
+* run helm init
+
+Use other helm commands to list packages, update the metadata and install/remove charts.
+
+Available charts \(stable & unstable\): [https://github.com/kubernetes/charts](https://github.com/kubernetes/charts)
+
+# Minikube
+
+## About
+
+Best way of spinning up a local k8s environment.
+
+* kubectl interacts with the Minikube VM
+* Minikube VM
+  * Localkube \(binary\) containing
+    * Master
+    * Node
+  * Container runtime
+    * Docker or Rocket \(rkt\)
+
 ## Windows test cluster setup
 
 On Windows we can easily install a single-node Kubernetes cluster using Minikube: [https://github.com/kubernetes/minikube](https://github.com/kubernetes/minikube)
 
-In addition to control the cluster we can use kubectl: [https://kubernetes.io/docs/tasks/tools/install-kubectl/](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
-
 Steps:
 
 * download minikube and add to the path
-* download kubectl and add to the path
 * enable VT extensions in the BIOS \(CPU config\)
 * install Hyper-V on W10+
 * create a vSwitch for Minikube
@@ -165,16 +195,7 @@ Alternative path to install:
 * install WSL \(subsystem for Linux\)
 * install through Ubuntu apt-get :\)
 
-## Helm
+## 
 
-Helm \([https://github.com/kubernetes/helm/releases](https://github.com/kubernetes/helm/releases)\) is a "package manager" for Kubernetes, allowing to easily deploy "Charts" \(pre-made Deployments\)
 
-Installation:
-
-* download the release and add to the path
-* run helm init
-
-Use other helm commands to list packages, update the metadata and install/remove charts.
-
-Available charts \(stable & unstable\): [https://github.com/kubernetes/charts](https://github.com/kubernetes/charts)
 
