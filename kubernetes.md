@@ -100,6 +100,21 @@ Example:
 * Web server
 * Log scraper \(sidecar container\)
 
+Manifest example:
+
+```
+apiVersion: v1
+kind: Pod
+metadata:
+    name: hello-pod
+spec:
+    containers:
+    - name: hello-container
+      image: nigelpoulton/pluralsight-docker-ci:latest
+      ports:
+      - containerPort: 8080
+```
+
 ### Services
 
 Services provide a stable IP & DNS name for a set of pods.
@@ -116,9 +131,7 @@ We can't rely on pod IPs. When pods die, they're replaced by other pods on \(pot
 * can point to things outside the cluster
 * uses TCP by default
 
-### Labels rock
-
-...
+### Labels rock :\)
 
 ### Deployment
 
