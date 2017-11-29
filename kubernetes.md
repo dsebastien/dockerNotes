@@ -118,7 +118,7 @@ spec:
     - containerPort: 8080
 ```
 
-Deployment of that pod: 
+Deployment of that pod:
 
 ```
 kubectl create -f pod.yml
