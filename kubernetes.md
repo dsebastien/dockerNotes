@@ -106,13 +106,23 @@ Manifest example:
 apiVersion: v1
 kind: Pod
 metadata:
-    name: hello-pod
+  name: hello-pod
+  labels:
+    zone: prod
+    version: 1.0.0
 spec:
-    containers:
-    - name: hello-container
-      image: nigelpoulton/pluralsight-docker-ci:latest
-      ports:
-      - containerPort: 8080
+  containers:
+  - name: hello-container
+    image: nigelpoulton/pluralsight-docker-ci:latest
+    ports:
+    - containerPort: 8080
+```
+
+Deployment of that pod: 
+
+```
+kubectl create -f pod.yml
+kubectl describe pods
 ```
 
 ### Services
